@@ -57,10 +57,10 @@
              </td>
              <td>
                <%= link_to book_path(@book_show.id) do %>
-               <%= @book_show.book_title %>
+               <%= @book_show.title %>
                <% end %>
              </td>
-             <td><%= @book_show.opinion %></td>
+             <td><%= @book_show.body %></td>
              <% if @book_show.user == current_user %>
              <td>
                <%= link_to "Edit", edit_book_path(@book_show.id), class: 'btn btn-sm btn-success edit_book_21669' %>
