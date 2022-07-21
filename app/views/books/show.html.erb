@@ -20,7 +20,7 @@
           </tbody>
         </table>
         <div class="row">
-          <%= link_to edit_user_path(current_user),class: 'btn btn-outline-secondary btn-block edit_user_28797' do %>
+          <%= link_to edit_user_path(@book_show.user),class: 'btn btn-outline-secondary btn-block edit_user_28797' do %>
           <i class="fas fa-user-cog"></i>
           <% end %>
         </div>
@@ -28,11 +28,11 @@
         <%= form_with model: @book do |f| %>
          <div class="form-group">
           <p>Title</p>
-          <p><%= f.text_field:book_title %></p>
+          <p><%= f.text_field:title %></p>
          </div>
          <div class="form-group">
           <p>Opinion</p>
-          <p><%= f.text_area:opinion %></p>
+          <p><%= f.text_area:body %></p>
          </div>
          <div class="form-group">
            <%= f.submit 'Create Book', class: 'btn btn-success' %>
@@ -40,8 +40,8 @@
         <% end %>
      </div>
      <div class="col-md-8 offset-md-1">
-       <h2>Books</h2>
-       <table class="table table-hover table-inverse">
+       <h2>Book detail</h2>
+       <table class="table">
          <thead>
            <tr>
              <th></th>
@@ -53,7 +53,10 @@
          <tbody>
            <tr>
              <td>
+               <%= link_to user_path(@user.id) do %>
                <%= image_tag @book_show.user.get_profile_image(100,100) %>
+               <%= @book_show.user.name %>
+               <% end %>
              </td>
              <td>
                <%= link_to book_path(@book_show.id) do %>
